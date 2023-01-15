@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.21",
+    "postcss-nested": "^6.0.0",
+    "tailwindcss": "^3.2.4",
+    "vite": "^4.0.4",
+    "vite-plugin-live-reload": "^3.0.1"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "alpinejs": "^3.10.5"
+  },
+  "name": "csstore",
+  "description": "The \"_s\" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your Sass, scripts, and task runners however you would like!",
+  "version": "1.0.0",
+  "main": "postcss.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
