@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './web/app/themes/di-flowers/templates/**/*.twig',
-    './web/app/themes/di-flowers/views/**/*.twig',
-    // './web/app/themes/di-flowers/blocks/**/*.php',
-    './web/app/themes/di-flowers/templates/**/*.js',
+    './templates/**/*.twig',
+    './views/**/*.twig',
+    // './blocks/**/*.php',
+    // './templates/**/*.js',
     // "./resources/**/*.vue",
   ],
   theme: {
