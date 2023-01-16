@@ -41,7 +41,6 @@ window.searchData = () => {
         })
         .then(j => {
           this.result = j
-          console.log(j)
           this.open = true
         })
     },

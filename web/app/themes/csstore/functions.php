@@ -75,6 +75,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		add_filter('use_block_editor_for_post', '__return_false', 10);
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
