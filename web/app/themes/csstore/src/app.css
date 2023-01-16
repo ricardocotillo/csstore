@@ -1,4 +1,8 @@
 @tailwind base;
 @tailwind components;
 
+.button {
+    @apply px-4 py-2 rounded-md;
+}
+
 @tailwind utilities;

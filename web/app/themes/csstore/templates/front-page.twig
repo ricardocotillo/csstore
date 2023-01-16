@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <section class="splide" aria-label="CSS Slider">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for slide in slider %}
+          <li style="background-image: url({{ Image(slide.image).src }})" class="flex items-center justify-center h-96 splide__slide">
+            {% if slide.button_text %}
+              <button class="text-white button bg-primary hover:bg-pink-600">{{ slide.button_text }}</button>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endblock %}

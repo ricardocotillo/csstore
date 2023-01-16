@@ -76,6 +76,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		add_filter('use_block_editor_for_post', '__return_false', 10);
+		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -98,6 +99,18 @@ class StarterSite extends Timber\Site {
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
+	}
+
+	public function rc_register_fields() {
+		Container::make( 'post_meta', 'Custom Data' )
+		->where( 'post_id', '=', get_option( 'page_on_front' ) )
+		->add_fields( array(
+			Field::make( 'complex', 'rc_slider', __( 'Slider' ) )
+			->add_fields( array(
+				Field::make( 'image', 'image', __( 'Slide Photo' ) ),
+				Field::make( 'text', 'button_text', __( 'Slide Button Text' ) ),
+			) )
+		));
 	}
 
 	public function theme_supports() {

@@ -1,3 +1,4 @@
+import Splide from '@splidejs/splide'
 import Alpine from 'alpinejs'
 
 window.Alpine = Alpine
@@ -51,3 +52,11 @@ window.searchData = () => {
 }
 
 Alpine.start()
+
+document.addEventListener( 'DOMContentLoaded', function() {
+  const splide = new Splide( '.splide', {
+    type: 'loop',
+    autoplay: true,
+  } );
+  splide.mount();
+} );

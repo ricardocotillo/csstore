@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,7 +9,11 @@ module.exports = {
     // "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': colors.pink[500],
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
