@@ -8,16 +8,51 @@
 
 	<body class="{{body_class}}" data-template="base.twig">
 		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-		<header class="header" >
+		<header class="header" x-data="{ open: false }">
 			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'items': menu.get_items} %}
+				<div class="flex justify-between wrapper">
+          <div class="flex items-center gap-2">
+            <button @click="open = true" class="p-2 text-2xl"><i class="las la-bars"></i></button>
+            <h1 class="hdr-logo" role="banner">
+              <a class="font-bold text-pink-600 uppercase hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+            </h1>
+          </div>
+					<nav
+            id="nav-main"
+            class="fixed w-full h-full nav-main"
+            role="navigation"
+            x-show="open"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full"
+          >
+            <div class="w-3/4 h-full bg-white">
+              <div class="flex items-center justify-between px-4 border-b border-b-gray-300">
+                <h1 class="font-bold text-pink-600 uppercase hdr-logo" role="banner">{{site.name}}</h1>
+                <button @click="open = false" class="p-2 text-2xl"><i class="las la-times"></i></button>
+              </div>
+              {% include "menu.twig" with {'items': menu.get_items} %}
+            </div>
 					</nav><!-- #nav -->
+          <div class="flex gap-2">
+            <button class="p-2 text-2xl">
+              <i class="las la-user"></i>
+            </button>
+            <button class="p-2 text-2xl">
+              <i class="las la-shopping-bag"></i>
+            </button>
+          </div>
 				</div>
+
+        <div>
+          <div class="flex items-stretch justify-center w-full">
+            <input type="text" name="search" id="search" class="w-3/4 h-10 border-r-0 border-gray-200 focus:border-gray-200 focus:ring-0 focus:outline-none rounded-l-md">
+            <button class="px-4 bg-gray-200 border-r border-y-gray-200 border-y rounded-r-md"><i class="las la-search"></i></button>
+          </div>
+        </div>
 			{% endblock %}
 		</header>
 
