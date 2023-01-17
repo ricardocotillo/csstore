@@ -12,8 +12,8 @@
 			{% block header %}
 				<div class="flex flex-wrap items-center justify-between wrapper">
           {# logo #}
-          <div class="flex items-center flex-shrink-0 gap-2">
-            <button @click="open = true" class="p-2 text-2xl"><i class="las la-bars"></i></button>
+          <div class="flex items-center flex-shrink-0 gap-2 pl-2">
+            <button @click="open = true" class="p-2 text-2xl xl:hidden"><i class="las la-bars"></i></button>
             <h1 class="hdr-logo" role="banner">
               <a class="font-bold text-pink-600 uppercase hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
             </h1>

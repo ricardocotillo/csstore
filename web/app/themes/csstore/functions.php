@@ -113,7 +113,6 @@ class StarterSite extends Timber\Site {
 			Field::make( 'separator', 'rc_items_grid_separator', 'Items Grid' ),
 			Field::make( 'text', 'rc_items_grid_title', 'Título' ),
 			Field::make( 'association', 'rc_items_grid_items', 'Items' )
-				->set_max( 4 )
 				->set_types( array(
 					array(
 						'type'	=> 'post'
