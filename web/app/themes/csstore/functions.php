@@ -109,7 +109,19 @@ class StarterSite extends Timber\Site {
 			->add_fields( array(
 				Field::make( 'image', 'image', __( 'Slide Photo' ) ),
 				Field::make( 'text', 'button_text', __( 'Slide Button Text' ) ),
-			) )
+			) ),
+			Field::make( 'separator', 'rc_items_grid_separator', 'Items Grid' ),
+			Field::make( 'text', 'rc_items_grid_title', 'Título del Grid de Items' ),
+			Field::make( 'association', 'rc_items_grid_items', 'Items del Grid de Items' )
+				->set_max( 4 )
+				->set_types( array(
+					array(
+						'type'	=> 'post'
+					),
+					array(
+						'type'	=> 'term'
+					),
+				) ),
 		));
 	}
 

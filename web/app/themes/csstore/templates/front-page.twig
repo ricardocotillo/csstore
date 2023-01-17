@@ -14,4 +14,22 @@
       </ul>
     </div>
   </section>
+  <section class="py-10 bg-purple-300">
+    <div class="container flex flex-col gap-4 mx-auto">
+      <h1 class="text-center">{{ items_grid_title }}</h1>
+      <div class="flex gap-2">
+        {% for item in items_grid_items %}
+          <div class="flex flex-col w-1/4 gap-2">
+            <a
+              href="{{ item.link }}"
+              class="w-full aspect-square"
+              style="background-image: url({{ Image(item.meta( 'thumbnail_id' )).src }});"
+            >
+            </a>
+            <h4 class="text-center">{{ item.title }}</h4>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 {% endblock %}

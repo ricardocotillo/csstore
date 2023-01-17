@@ -5,4 +5,16 @@
     @apply px-4 py-2 rounded-md;
 }
 
+h1 {
+    @apply text-3xl font-bold;
+}
+
+h2 {
+    @apply text-2xl font-bold;
+}
+
+h4 {
+    @apply text-lg font-bold;
+}
+
 @tailwind utilities;
