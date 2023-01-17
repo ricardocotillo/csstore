@@ -62,7 +62,25 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
   const products = new Splide( '.splide-products', {
     type: 'loop',
-    perPage: 4,
+    perPage: 1,
+    gap: '.5rem',
+    pagination: false,
+    perMove: 1,
+    mediaQuery: 'min',
+    breakpoints: {
+      576: {
+        perPage: 2,
+      },
+      992: {
+        perPage: 3,
+      },
+      1200: {
+        perPage: 4,
+      },
+      1400: {
+        perPage: 5,
+      }
+    }
   })
   products.mount()
 });
