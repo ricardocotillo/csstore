@@ -26,7 +26,7 @@ h4 {
 }
 
 .woocommerce-loop-product__link .onsale {
-    @apply absolute flex items-center justify-center p-2 text-white bg-pink-500 rounded-full aspect-square top-3 left-3;
+    @apply absolute flex items-center justify-center p-1 text-sm text-white bg-pink-500 rounded-full aspect-square top-1 left-1;
 }
 
 .woocommerce-loop-product__link img {
@@ -41,8 +41,20 @@ h4 {
     @apply flex flex-col justify-between gap-2 p-2 bg-white rounded-md;
 }
 
+.splide-products .splide__slide .added_to_cart {
+    @apply absolute px-2 py-1 text-white bg-green-500 rounded-md right-3 top-3;
+}
+
 .splide-products .splide__slide .add_to_cart_button {
     @apply w-full text-center text-white bg-pink-400;
+}
+
+.splide-products .splide__slide .add_to_cart_button.loading .la-spinner {
+    @apply block;
+}
+
+.splide-products .splide__slide .add_to_cart_button.added .la-check {
+    @apply block;
 }
 
 .splide-products .splide__slide .button.product_type_variable {

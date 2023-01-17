@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
     './templates/**/*.twig',
-    './views/**/*.twig',
+    './views/woocommerce/**/*.twig',
     // './blocks/**/*.php',
     // './templates/**/*.js',
     // "./resources/**/*.vue",
