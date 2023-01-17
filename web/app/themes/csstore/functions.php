@@ -111,8 +111,8 @@ class StarterSite extends Timber\Site {
 				Field::make( 'text', 'button_text', __( 'Slide Button Text' ) ),
 			) ),
 			Field::make( 'separator', 'rc_items_grid_separator', 'Items Grid' ),
-			Field::make( 'text', 'rc_items_grid_title', 'Título del Grid de Items' ),
-			Field::make( 'association', 'rc_items_grid_items', 'Items del Grid de Items' )
+			Field::make( 'text', 'rc_items_grid_title', 'Título' ),
+			Field::make( 'association', 'rc_items_grid_items', 'Items' )
 				->set_max( 4 )
 				->set_types( array(
 					array(
@@ -120,6 +120,15 @@ class StarterSite extends Timber\Site {
 					),
 					array(
 						'type'	=> 'term'
+					),
+				) ),
+			Field::make( 'separator', 'rc_products_slider', 'Slider de Productos' ),
+			Field::make( 'text', 'rc_products_grid_title', 'Título' ),
+			Field::make( 'association', 'rc_products_grid', 'Productos' )
+				->set_types( array(
+					array(
+						'type'		=> 'post',
+						'post_type'	=> 'product',
 					),
 				) ),
 		));
@@ -206,9 +215,17 @@ class StarterSite extends Timber\Site {
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		$twig->addFunction( new Timber\Twig_Function( 'set_global_product', 'set_global_product' ) );
 		return $twig;
 	}
 
 }
 
 new StarterSite();
+
+function set_global_product( $p ) {
+	global $product;
+	global $post;
+	$product = $p;
+	$post = get_post( $p->id );
+}

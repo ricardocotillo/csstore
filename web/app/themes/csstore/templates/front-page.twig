@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <section class="splide" aria-label="CSS Slider">
+  <section class="splide splide-slider" aria-label="CSS Slider">
     <div class="splide__track">
       <ul class="splide__list">
         {% for slide in slider %}
@@ -29,6 +29,21 @@
             <h4 class="text-center">{{ item.title }}</h4>
           </div>
         {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="py-10 bg-gray-300">
+    <div class="container flex flex-col gap-4 mx-auto">
+      <h1 class="text-center">{{ products_grid_title }}</h1>
+      <div class="splide splide-products">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for post in products_grid %}
+              {{ set_global_product( post ) }}
+              {% include 'woocommerce/content-product.twig' with { product: post, c: 'splide__slide' } %}
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </section>

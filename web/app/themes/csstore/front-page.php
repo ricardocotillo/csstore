@@ -24,4 +24,10 @@ $context[ 'items_grid_items' ] = array_map( function($item) {
             break;
     }
 }, $items );
+$products = carbon_get_post_meta( $post_id, 'rc_products_grid' );
+$context[ 'products_grid_title' ] = carbon_get_post_meta( $post_id, 'rc_products_grid_title' );
+$context[ 'products_grid' ] = array_map( function( $p ) {
+    return wc_get_product( $p[ 'id' ] );
+}, $products );
+
 Timber::render( array( 'front-page.twig' ), $context );

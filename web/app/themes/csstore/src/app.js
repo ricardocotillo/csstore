@@ -54,9 +54,15 @@ window.searchData = () => {
 Alpine.start()
 
 document.addEventListener( 'DOMContentLoaded', function() {
-  const splide = new Splide( '.splide', {
+  const slider = new Splide( '.splide-slider', {
     type: 'loop',
     autoplay: true,
-  } );
-  splide.mount();
-} );
+  } )
+  slider.mount()
+
+  const products = new Splide( '.splide-products', {
+    type: 'loop',
+    perPage: 4,
+  })
+  products.mount()
+});
