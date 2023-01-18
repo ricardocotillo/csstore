@@ -51,6 +51,16 @@ window.searchData = () => {
   }
 }
 
+// mini cart
+window.miniCartData = () => {
+  return {
+    open: false,
+    openMiniCart() {
+      this.$refs.miniCart.showModal()
+    }
+  }
+}
+
 Alpine.start()
 
 document.addEventListener( 'DOMContentLoaded', function() {

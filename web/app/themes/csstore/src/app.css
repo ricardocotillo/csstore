@@ -2,7 +2,7 @@
 @tailwind components;
 
 .button {
-    @apply px-4 py-2 rounded-md;
+    @apply px-4 py-2 text-center rounded-md;
 }
 
 h1 {
@@ -63,6 +63,49 @@ h4 {
 
 .products .splide__slide .button.product_type_grouped {
     @apply w-full text-center text-white bg-green-500;
+}
+
+ /* mini cart */
+.widget_shopping_cart_content {
+    @apply fixed top-0 right-0 z-30 flex-col h-screen gap-2 p-4 bg-white;
+}
+.widget_shopping_cart_content[open] {
+    @apply flex mr-0;
+}
+.widget_shopping_cart_content::backdrop {
+    @apply bg-pink-200 bg-opacity-50
+}
+
+.woocommerce-mini-cart {
+    @apply flex flex-col gap-4 w-80;
+}
+.woocommerce-mini-cart-item {
+    @apply flex flex-wrap items-center gap-1;
+}
+.woocommerce-mini-cart a {
+    @apply flex items-center gap-2;
+}
+.woocommerce-mini-cart-item img {
+    @apply w-12;
+}
+
+.woocommerce-mini-cart-item .quantity {
+    @apply w-full;
+}
+
+.woocommerce-mini-cart__total.total {
+    @apply py-2 border-gray-200 border-y;
+}
+
+.woocommerce-mini-cart__buttons.buttons {
+    @apply flex flex-col gap-2;
+}
+
+.woocommerce-mini-cart__buttons.buttons .wc-forward {
+    @apply text-white bg-green-500;
+}
+.woocommerce-mini-cart__buttons.buttons .checkout {
+    @apply text-white bg-blue-500;
 }
 
 @tailwind utilities;

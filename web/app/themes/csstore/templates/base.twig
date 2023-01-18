@@ -42,9 +42,14 @@
             <button class="p-2 text-2xl">
               <i class="las la-user"></i>
             </button>
-            <button class="p-2 text-2xl">
-              <i class="las la-shopping-bag"></i>
-            </button>
+            <div x-data="miniCartData">
+              <button @click="openMiniCart" class="p-2 text-2xl focus-visible:outline-none">
+                <i class="las la-shopping-bag"></i>
+              </button>
+              <dialog x-ref="miniCart" class="widget_shopping_cart_content">
+                {{ fn('woocommerce_mini_cart') }}
+              </dialog>
+            </div>
           </div>
           {# nav #}
           <nav
