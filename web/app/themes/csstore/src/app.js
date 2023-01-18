@@ -113,6 +113,12 @@ document.addEventListener( 'DOMContentLoaded', function() {
     type: 'loop',
     perPage: 2,
     pagination: false,
+    mediaQuery: 'min',
+    breakpoints: {
+      992: {
+        perPage: 3,
+      },
+    }
   })
   tiles.mount()
 });
