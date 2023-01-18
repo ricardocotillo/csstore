@@ -37,31 +37,31 @@ h4 {
     @apply text-lg font-normal;
 }
 
-.splide-products .splide__slide {
+.products .splide__slide {
     @apply flex flex-col justify-between gap-2 p-2 bg-white rounded-md;
 }
 
-.splide-products .splide__slide .added_to_cart {
+.products .splide__slide .added_to_cart {
     @apply absolute px-2 py-1 text-white bg-green-500 rounded-md right-3 top-3;
 }
 
-.splide-products .splide__slide .add_to_cart_button {
+.products .splide__slide .add_to_cart_button {
     @apply w-full text-center text-white bg-pink-400;
 }
 
-.splide-products .splide__slide .add_to_cart_button.loading .la-spinner {
+.products .splide__slide .add_to_cart_button.loading .la-spinner {
     @apply block;
 }
 
-.splide-products .splide__slide .add_to_cart_button.added .la-check {
+.products .splide__slide .add_to_cart_button.added .la-check {
     @apply block;
 }
 
-.splide-products .splide__slide .button.product_type_variable {
+.products .splide__slide .button.product_type_variable {
     @apply w-full text-center text-white bg-blue-500;
 }
 
-.splide-products .splide__slide .button.product_type_grouped {
+.products .splide__slide .button.product_type_grouped {
     @apply w-full text-center text-white bg-green-500;
 }
 

@@ -127,6 +127,20 @@ class StarterSite extends Timber\Site {
 						'post_type'	=> 'product',
 					),
 				) ),
+			Field::make( 'separator', 'rc_tiles_separator', 'Grupos de Mosaicos' ),
+			Field::make( 'text', 'rc_tiles_title', 'Título' ),
+			Field::make( 'complex', 'rc_tiles', 'Mosaicos' )
+				->add_fields( array(
+					Field::make( 'image', 'image', 'Imagen' ),
+					Field::make( 'text', 'title', 'Título' ),
+					Field::make( 'association', 'products', 'Productos' )
+						->set_types( array(
+							array(
+								'type'		=> 'post',
+								'post_type'	=> 'product'
+							)
+						) )
+				) ),
 		));
 	}
 

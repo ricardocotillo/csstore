@@ -84,14 +84,15 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
   const products = new Splide('.splide-products', {
     type: 'loop',
-    perPage: 1,
-    gap: '.5rem',
+    perPage: 2,
+    gap: '.25rem',
     pagination: false,
     perMove: 1,
     mediaQuery: 'min',
     breakpoints: {
       576: {
         perPage: 2,
+        gap: '.5rem',
       },
       992: {
         perPage: 3,
@@ -105,4 +106,11 @@ document.addEventListener( 'DOMContentLoaded', function() {
     }
   })
   products.mount()
+
+  const tiles = new Splide('.splide-tiles', {
+    type: 'loop',
+    perPage: 2,
+    pagination: false,
+  })
+  tiles.mount()
 });
