@@ -36,7 +36,7 @@
       </div>
     </div>
   </section>
-  <section class="pt-10 pb-16 bg-gray-300">
+  <section class="pt-10 pb-16 bg-gray-100">
     <div class="container flex flex-col gap-4 mx-auto">
       <h1 class="text-center">{{ products_grid_title }}</h1>
       <div class="splide splide-products">
@@ -68,6 +68,25 @@
                   {% endfor %}
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section class="py-10 bg-gray-100">
+    <div class="container flex flex-col gap-6 mx-auto">
+      {% for row in products %}
+        <div>
+          <h3 class="mb-2 text-center">{{ row.title }}</h3>
+          <div class="splide splide-products">
+            <div class="splide__track">
+              <ul class="splide__list products">
+                {% for post in row.products %}
+                  {{ set_global_product( post ) }}
+                  {% include 'woocommerce/content-product.twig' with { product: post, c: 'splide__slide' } %}
+                {% endfor %}
+              </ul>
             </div>
           </div>
         </div>

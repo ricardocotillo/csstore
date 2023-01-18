@@ -141,6 +141,18 @@ class StarterSite extends Timber\Site {
 							)
 						) )
 				) ),
+			Field::make( 'separator', 'rc_products_separator', 'Filas de Productos' ),
+			Field::make( 'complex', 'rc_products', 'Productos' )
+				->add_fields( array(
+					Field::make( 'text', 'title', 'Título' ),
+					Field::make( 'association', 'products', 'Productos' )
+						->set_types( array(
+							array(
+								'type'		=> 'post',
+								'post_type'	=> 'product'
+							)
+						) )
+				) ),
 		));
 	}
 

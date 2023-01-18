@@ -81,31 +81,33 @@ document.addEventListener( 'DOMContentLoaded', function() {
     }
   })
   categories.mount()
-
-  const products = new Splide('.splide-products', {
-    type: 'loop',
-    perPage: 2,
-    gap: '.25rem',
-    pagination: false,
-    perMove: 1,
-    mediaQuery: 'min',
-    breakpoints: {
-      576: {
-        perPage: 2,
-        gap: '.5rem',
-      },
-      992: {
-        perPage: 3,
-      },
-      1200: {
-        perPage: 4,
-      },
-      1400: {
-        perPage: 5,
+  const productsRows = document.querySelectorAll('.splide-products')
+  productsRows.forEach(r => {
+    const products = new Splide(r, {
+      type: 'loop',
+      perPage: 2,
+      gap: '.25rem',
+      pagination: false,
+      perMove: 1,
+      mediaQuery: 'min',
+      breakpoints: {
+        576: {
+          perPage: 2,
+          gap: '.5rem',
+        },
+        992: {
+          perPage: 3,
+        },
+        1200: {
+          perPage: 4,
+        },
+        1400: {
+          perPage: 5,
+        }
       }
-    }
+    })
+    products.mount()
   })
-  products.mount()
 
   const tiles = new Splide('.splide-tiles', {
     type: 'loop',

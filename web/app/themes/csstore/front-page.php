@@ -35,10 +35,18 @@ $context[ 'products_grid' ] = array_map( function( $p ) {
 
 $context[ 'tiles_title' ] = carbon_get_post_meta( $post_id, 'rc_tiles_title' );
 $context[ 'tiles' ] = carbon_get_post_meta( $post_id, 'rc_tiles' );
-$context[ 'tiles' ] = array_map( function($t) {
+$context[ 'tiles' ] = array_map( function( $t ) {
     $t[ 'products' ] = array_map( function( $p ) {
         return wc_get_product( $p[ 'id' ] );
     }, $t[ 'products' ] );
     return $t;
 }, $context[ 'tiles' ]);
+
+$products = carbon_get_post_meta( $post_id, 'rc_products' );
+$context[ 'products' ] = array_map( function( $product ) {
+    $product[ 'products' ] = array_map( function( $p ) {
+        return wc_get_product( $p[ 'id' ] );
+    }, $product[ 'products' ] );
+    return $product;
+}, $products );
 Timber::render( array( 'front-page.twig' ), $context );
