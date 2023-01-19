@@ -21,6 +21,16 @@ h4 {
     @apply text-lg font-bold;
 }
 
+input[type="text"],
+input[type="number"] {
+    @apply rounded-md;
+}
+
+/* content wrapper */
+.content-wrapper:has(.woocommerce) {
+    @apply container mx-auto;
+}
+
 .woocommerce-loop-product__link {
     @apply relative flex flex-col gap-1;
 }
@@ -108,4 +118,91 @@ h4 {
     @apply text-white bg-blue-500;
 }
 
+/* cart */
+
+.cart-empty.woocommerce-info {
+    @apply mb-4 italic text-center;    
+}
+
+.return-to-shop {
+    @apply text-center;
+}
+
+.woocommerce-page .article-h1 {
+    @apply hidden;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form {
+    @apply overflow-x-auto;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form table.shop_table {
+    @apply w-full border border-gray-300;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form thead {
+    @apply border border-gray-300;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form tbody td {
+    @apply p-2;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form th {
+    @apply p-2 text-sm tracking-wider text-left;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form .product-remove a  {
+    @apply flex items-center justify-center;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form .product-thumbnail  {
+    @apply hidden w-16 h-16 overflow-hidden rounded-sm md:table-cell;
+}
+
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form .quantity input.qty {
+    @apply w-20;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form .actions {
+    @apply border border-gray-300;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form .coupon {
+    @apply flex items-center gap-2 mb-2 md:float-left md:mb-0;
+}
+
+.woocommerce-page.woocommerce-cart .button {
+    @apply text-white bg-gray-500;
+}
+
+.coupon input.input-text {
+    @apply w-1/2 md:w-auto;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form [for="coupon_code"] {
+    @apply hidden md:inline;
+}
+
+.woocommerce-page.woocommerce-cart .woocommerce-cart-form button[type="submit"] {
+    @apply md:float-right;
+}
+
+.woocommerce-page.woocommerce-cart .cart_totals {
+    @apply flex flex-col items-start gap-4 py-4;
+}
+
+.woocommerce-page.woocommerce-cart .cart_totals table.shop_table {
+    @apply w-full max-w-md border border-gray-300;
+}
+
+.woocommerce-page.woocommerce-cart .cart_totals table.shop_table tr {
+    @apply border border-gray-300;
+}
+
+.woocommerce-page.woocommerce-cart .cart_totals table.shop_table th,
+.woocommerce-page.woocommerce-cart .cart_totals table.shop_table td {
+    @apply p-2 text-left;
+}
 @tailwind utilities;
