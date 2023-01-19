@@ -64,33 +64,40 @@ window.miniCartData = () => {
 Alpine.start()
 
 document.addEventListener( 'DOMContentLoaded', function() {
-  const slider = new Splide('.splide-slider', {
-    type: 'loop',
-    autoplay: true,
-  } )
-  slider.mount()
+  const s = document.querySelector('.splide-slider')
+  if (s) {
+    const slider = new Splide(s, {
+      type: 'loop',
+      autoplay: true,
+    } )
+    slider.mount()
+  }
 
-  const categories = new Splide('.splide-categories', {
-    type: 'loop',
-    autoplay: true,
-    gap: '.5rem',
-    pagination: false,
-    perPage: 1,
-    perMove: 1,
-    mediaQuery: 'min',
-    breakpoints: {
-      576: {
-        perPage: 2,
-      },
-      992: {
-        perPage: 3,
-      },
-      1200: {
-        perPage: 4,
-      },
-    }
-  })
-  categories.mount()
+  const c = document.querySelector('.splide-categories')
+  if (s) {
+    const categories = new Splide(c, {
+      type: 'loop',
+      autoplay: true,
+      gap: '.5rem',
+      pagination: false,
+      perPage: 1,
+      perMove: 1,
+      mediaQuery: 'min',
+      breakpoints: {
+        576: {
+          perPage: 2,
+        },
+        992: {
+          perPage: 3,
+        },
+        1200: {
+          perPage: 4,
+        },
+      }
+    })
+    categories.mount()
+  }
+
   const productsRows = document.querySelectorAll('.splide-products')
   productsRows.forEach(r => {
     const products = new Splide(r, {
@@ -119,16 +126,19 @@ document.addEventListener( 'DOMContentLoaded', function() {
     products.mount()
   })
 
-  const tiles = new Splide('.splide-tiles', {
-    type: 'loop',
-    perPage: 2,
-    pagination: false,
-    mediaQuery: 'min',
-    breakpoints: {
-      992: {
-        perPage: 3,
-      },
-    }
-  })
-  tiles.mount()
+  const t = document.querySelector('.splide-tiles')
+  if (t) {
+    const tiles = new Splide('.splide-tiles', {
+      type: 'loop',
+      perPage: 2,
+      pagination: false,
+      mediaQuery: 'min',
+      breakpoints: {
+        992: {
+          perPage: 3,
+        },
+      }
+    })
+    tiles.mount()
+  }
 });
