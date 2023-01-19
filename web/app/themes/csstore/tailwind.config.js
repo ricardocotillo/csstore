@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         'primary': colors.pink[500],
       },
+      fontSize: {
+        '2xs': '0.625rem'
+      },
       spacing: {
         'shop-1/4': 'calc(25% - 0.375rem)',
         'shop-1/2': 'calc(50% - 0.25rem)',

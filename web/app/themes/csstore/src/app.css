@@ -158,14 +158,14 @@ input[type="number"] {
 }
 
  /* mini cart */
+.cart-count {
+    @apply absolute inline-flex items-center justify-center w-4 h-4 font-sans not-italic font-normal text-white bg-pink-500 rounded-full left-1/2 text-2xs aspect-square;
+}
+.cart-count.empty {
+    @apply bg-transparent;
+}
 .widget_shopping_cart_content {
-    @apply fixed top-0 right-0 z-30 flex-col h-screen gap-2 p-4 bg-white;
-}
-.widget_shopping_cart_content[open] {
-    @apply flex mr-0;
-}
-.widget_shopping_cart_content::backdrop {
-    @apply bg-pink-200 bg-opacity-50
+    @apply flex flex-col gap-2 p-4;
 }
 
 .woocommerce-mini-cart {

@@ -56,7 +56,10 @@ window.miniCartData = () => {
   return {
     open: false,
     openMiniCart() {
-      this.$refs.miniCart.showModal()
+      this.open = true
+    },
+    closeMiniCart() {
+      this.open = false
     }
   }
 }

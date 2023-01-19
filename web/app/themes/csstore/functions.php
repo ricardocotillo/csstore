@@ -77,6 +77,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		add_filter('use_block_editor_for_post', '__return_false', 10);
 		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
+		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -86,6 +87,15 @@ class StarterSite extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 
+	}
+
+	public function rc_fragments( $f ) {
+		$count = WC()->cart->get_cart_contents_count();
+		$class = 'cart-count';
+		$class .= $count > 0 ? '' : ' empty';
+		$count = $count > 0 ? (string)$count : '';
+		$f['.cart-count'] = '<span class="'.$class.'">'.$count.'</span>';
+		return $f;
 	}
 
 	/** This is where you add some context
