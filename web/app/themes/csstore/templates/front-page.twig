@@ -44,7 +44,7 @@
           <ul class="splide__list products">
             {% for post in products_grid %}
               {{ set_global_product( post ) }}
-              {% include 'woocommerce/content-product.twig' with { product: post, c: 'splide__slide' } %}
+              {% include 'woocommerce/content-product.twig' with { product: post, c: 'splide__slide product' } %}
             {% endfor %}
           </ul>
         </div>

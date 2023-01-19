@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+require('tailwindcss/')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -12,6 +13,9 @@ module.exports = {
     extend: {
       colors: {
         'primary': colors.pink[500],
+      },
+      spacing: {
+        'shop-1/4': 'calc(25% - 0.375rem)'
       }
     },
   },

@@ -18,6 +18,7 @@ $templates = array( 'archive.twig', 'index.twig' );
 
 $context = Timber::context();
 
+var_dump('heree');
 $context['title'] = 'Archive';
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );

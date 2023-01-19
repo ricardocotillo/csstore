@@ -32,7 +32,9 @@
          # @hooked woocommerce_result_count - 20
          # @hooked woocommerce_catalog_ordering - 30
          #}
-        {% do wc_action('woocommerce_before_shop_loop') %}
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            {% do wc_action('woocommerce_before_shop_loop') %}
+        </div>
 
 	    {{ fn('woocommerce_product_loop_start') }}
 
@@ -79,5 +81,5 @@
      #
      # @hooked woocommerce_get_sidebar - 10
      #}
-    {% do wc_action('woocommerce_sidebar') %}
+    {# {% do wc_action('woocommerce_sidebar') %} #}
 {% endblock %}
