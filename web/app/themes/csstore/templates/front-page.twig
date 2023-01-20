@@ -7,7 +7,7 @@
         {% for slide in slider %}
           <li style="background-image: url({{ Image(slide.image).src }})" class="flex items-center justify-center h-96 splide__slide">
             {% if slide.button_text %}
-              <button class="text-white button bg-primary hover:bg-pink-600">{{ slide.button_text }}</button>
+              <button class="text-white button bg-primary hover:bg-pink-500">{{ slide.button_text }}</button>
             {% endif %}
           </li>
         {% endfor %}
@@ -24,7 +24,7 @@
               <li class="flex flex-col w-full gap-2 xl:w-1/4 splide__slide">
                 <a
                   href="{{ item.link }}"
-                  class="w-full aspect-square"
+                  class="w-full bg-no-repeat aspect-square"
                   style="background-image: url({{ Image(item.meta( 'thumbnail_id' )).src }});"
                 >
                 </a>

@@ -15,7 +15,7 @@
           <div class="flex items-center flex-shrink-0 gap-2 pl-2">
             <button @click="open = true" class="p-2 text-2xl xl:hidden"><i class="las la-bars"></i></button>
             <h1 class="hdr-logo" role="banner">
-              <a class="font-bold text-pink-600 uppercase hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+              <a class="font-bold uppercase text-primary hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
             </h1>
           </div>
           {# search #}
@@ -39,9 +39,9 @@
           </div>
           {# account #}
           <div class="flex flex-shrink-0 gap-2">
-            <button class="p-2 text-2xl">
+            <a href="{{ fn('wc_get_page_permalink', 'myaccount') }}" class="p-2 text-2xl">
               <i class="las la-user"></i>
-            </button>
+            </a>
             <div x-data="miniCartData">
               <button @click="openMiniCart" class="relative p-2 text-2xl focus-visible:outline-none">
                 <i class="las la-shopping-bag">
@@ -76,7 +76,7 @@
           >
             <div class="w-3/4 h-full bg-white xl:w-full">
               <div class="flex items-center justify-between px-4 xl:hidden">
-                <h1 class="font-bold text-pink-600 uppercase hdr-logo" role="banner">{{site.name}}</h1>
+                <h1 class="font-bold uppercase text-primary hdr-logo" role="banner">{{site.name}}</h1>
                 <button @click="open = false" class="p-2 text-2xl"><i class="las la-times"></i></button>
               </div>
               <div class="flex justify-center border-t border-t-gray-300">
