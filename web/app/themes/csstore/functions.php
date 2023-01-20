@@ -115,6 +115,14 @@ class StarterSite extends Timber\Site {
 	 */
 	public function add_to_context( $context ) {
 		$context['menu']  = new Timber\Menu( 'main-menu' );
+		$context['footer_menu']  = new Timber\Menu( 'footer-menu' );
+		$context['social'] = array(
+			'phone'		=> carbon_get_theme_option( 'rc_phone' ),
+			'whatsapp'	=> carbon_get_theme_option( 'rc_whatsapp' ),
+			'email'		=> carbon_get_theme_option( 'rc_email' ),
+			'facebook'	=> carbon_get_theme_option( 'rc_facebook' ),
+			'instagram'	=> carbon_get_theme_option( 'rc_instagram' ),
+		);
 		$context['site']  = $this;
 		return $context;
 	}

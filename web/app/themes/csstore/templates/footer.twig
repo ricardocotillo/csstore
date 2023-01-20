@@ -1,1 +1,35 @@
-Copyright {{"now"|date('Y')}}
+<div class="container flex items-center justify-between gap-4 px-2 py-10 mx-auto">
+  <div class="flex flex-col gap-2">
+    <i class="text-3xl las la-compass text-primary"></i>
+    {% include 'partial/footer-menu.twig' with {'items': menu.get_items} %}
+  </div>
+  <div class="flex flex-col gap-2">
+    <i class="text-3xl las la-question-circle text-primary"></i>
+    {% include 'partial/footer-menu.twig' with {'items': footer_menu.get_items} %}
+  </div>
+  <div class="flex flex-col gap-2">
+    <i class="text-3xl las la-id-card text-primary"></i>
+    <ul>
+      <li><a href="tel:{{ social.phone }}"><i class="las la-phone"></i> Llámanos</a></li>
+      <li><a href="https://wa.me/51{{ social.whatsapp }}"><i class="lab la-whatsapp"></i> Chateemos</a></li>
+      <li><a href="mailto:{{ social.email }}"><i class="las la-envelope"></i> Escríbenos</a></li>
+    </ul>
+  </div>
+  <div class="flex gap-4 text-4xl text-primary">
+    <a href="{{ social.facebook }}"><i class="lab la-facebook"></i></a>
+    <a href="{{ social.instagram }}"><i class="lab la-instagram"></i></a>
+  </div>
+</div>
+<div class="py-5 bg-dark">
+  <div class="flex items-center justify-center gap-2 text-3xl text-light">
+    <i class="las la-lock"></i>
+    <span class="text-xl">Pago seguro con</span>
+    <div>
+      <i class="lab la-cc-visa"></i>
+      <i class="lab la-cc-mastercard"></i>
+      <i class="lab la-cc-diners-club"></i>
+      <i class="lab la-cc-amex"></i>
+    </div>
+  </div>
+  <p class="text-center text-light">Copyright {{"now"|date('Y')}}</p>
+</div>
