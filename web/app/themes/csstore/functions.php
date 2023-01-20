@@ -78,6 +78,7 @@ class StarterSite extends Timber\Site {
 		add_filter('use_block_editor_for_post', '__return_false', 10);
 		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
+		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -87,6 +88,10 @@ class StarterSite extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 
+	}
+
+	public function rc_add_after_add_to_cart_button() {
+		Timber::render('partial/after_add_to_cart_button.twig');
 	}
 
 	public function rc_fragments( $f ) {

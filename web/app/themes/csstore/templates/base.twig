@@ -21,8 +21,8 @@
           {# search #}
           <div class="relative order-last w-full md:w-auto md:order-none" x-data="searchData">
             <div class="flex items-stretch justify-center mx-auto w-80 xl:w-96 search">
-              <input @input="search" x-model="t" type="text" name="search" id="search" class="flex-grow h-10 border-r-0 border-gray-200 search focus:border-gray-200 focus:ring-0 focus:outline-none rounded-l-md">
-              <button class="flex-shrink-0 px-4 bg-gray-200 border-r search border-y-gray-200 border-y rounded-r-md">
+              <input @input="search" x-model="t" type="text" name="search" id="search" class="flex-grow h-10 border-r-0 rounded-r-none border-muted search focus:border-primary focus:ring-0 focus:outline-none rounded-l-md">
+              <button class="flex-shrink-0 px-4 text-white bg-primary rounded-r-md">
                 <i x-show="t.length == 0" class="las la-search"></i>
                 <i x-show="t.length > 0" @click="empty" class="las la-times"></i>
               </button>

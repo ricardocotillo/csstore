@@ -84,6 +84,9 @@ h4 {
 .woocommerce-page.single-product .product .woocommerce-product-gallery {
     @apply relative flex-shrink-0 w-full lg:w-1/3;
 }
+.woocommerce-page.single-product .product .woocommerce-product-gallery .wp-post-image {
+    @apply w-full;
+}
 
 .woocommerce-page.single-product .product .woocommerce-product-gallery__trigger {
     @apply absolute right-3;
@@ -102,7 +105,7 @@ h4 {
 }
 
 .woocommerce-page.single-product .product .price del {
-    @apply text-gray-500;
+    @apply text-secondary;
 }
 .woocommerce-page.single-product .product .price ins {
     @apply no-underline;
@@ -112,14 +115,18 @@ h4 {
     @apply flex flex-col gap-2;
 }
 .woocommerce-page.single-product .product .summary form.cart {
-    @apply flex;
+    @apply flex flex-wrap w-full lg:w-2/3;
+}
+
+.woocommerce-page.single-product .product .summary form.cart .quantity {
+    @apply w-1/3;
 }
 .woocommerce-page.single-product .product .summary form.cart .quantity input {
     @apply flex border-r-0 rounded-r-none focus:ring-0 focus:border-primary;
 }
 
 .woocommerce-page.single-product .product .summary form.cart .single_add_to_cart_button.button {
-    @apply w-full text-white rounded-l-none bg-primary;
+    @apply w-2/3 text-white rounded-l-none bg-primary hover:bg-pink-500;
 }
 
 .woocommerce-page.single-product .product .summary .product_meta {
@@ -209,7 +216,7 @@ h4 {
 }
 
 .woocommerce-mini-cart__total.total {
-    @apply py-2 border-gray-200 border-y;
+    @apply py-2 border-muted border-y;
 }
 
 .woocommerce-mini-cart__buttons.buttons {
@@ -279,7 +286,7 @@ h4 {
 }
 
 .woocommerce-page.woocommerce-cart .button {
-    @apply text-white bg-gray-500;
+    @apply text-white bg-secondary;
 }
 
 .coupon input.input-text {
@@ -355,7 +362,7 @@ h4 {
 }
 
 .woocommerce-page.woocommerce-checkout .woocommerce-checkout-review-order .woocommerce-terms-and-conditions-wrapper {
-    @apply text-sm italic text-gray-500;
+    @apply text-sm italic text-muted;
 }
 
 .woocommerce-page.woocommerce-checkout form.checkout button[type="submit"] {
