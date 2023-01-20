@@ -375,4 +375,28 @@ h4 {
     @apply flex flex-col gap-2;
 }
 
+/* my account */
+.woocommerce-account .woocommerce a:not(.woocommerce-MyAccount-navigation-link a) {
+    @apply text-primary;
+}
+.woocommerce-account .woocommerce {
+    @apply flex flex-col gap-4 pt-10 md:flex-row;
+}
+
+.woocommerce-account .woocommerce .woocommerce-MyAccount-navigation {
+    @apply flex-shrink-0 w-full md:w-1/4 lg:w-1/5;
+}
+
+.woocommerce-account .woocommerce .woocommerce-MyAccount-navigation ul {
+    @apply border border-secondary;
+}
+
+.woocommerce-account .woocommerce .woocommerce-MyAccount-navigation ul li:not(:last-child) {
+    @apply border-b border-secondary;
+}
+
+.woocommerce-account .woocommerce .woocommerce-MyAccount-navigation ul li {
+    @apply px-6 py-4;
+}
+
 @tailwind utilities;
