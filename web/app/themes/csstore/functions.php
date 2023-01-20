@@ -74,6 +74,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'rc_menus' ) );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		add_filter('use_block_editor_for_post', '__return_false', 10);
 		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
@@ -88,6 +89,11 @@ class StarterSite extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 
+	}
+
+	public function rc_menus() {
+		register_nav_menu( 'main-menu', 'Main Menu' );
+		register_nav_menu( 'footer-menu', 'Footer Menu' );
 	}
 
 	public function rc_add_after_add_to_cart_button() {
@@ -108,12 +114,26 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['menu']  = new Timber\Menu();
+		$context['menu']  = new Timber\Menu( 'main-menu' );
 		$context['site']  = $this;
 		return $context;
 	}
 
 	public function rc_register_fields() {
+		Container::make( 'theme_options', 'Opciones' )
+			->set_icon( 'dashicons-carrot' )
+			->add_fields( array(
+				Field::make( 'text', 'rc_phone', 'Teléfono' )
+					->set_attribute( 'type', 'tel' ),
+				Field::make( 'text', 'rc_whatsapp', 'Whatsapp' )
+					->set_attribute( 'type', 'tel' ),
+				Field::make( 'text', 'rc_email', 'Email' )
+					->set_attribute( 'type', 'email' ),
+				Field::make( 'text', 'rc_facebook', 'Facebook' )
+					->set_attribute( 'type', 'url' ),
+				Field::make( 'text', 'rc_instagram', 'Instagram' )
+					->set_attribute( 'type', 'url' ),
+			) );
 		Container::make( 'post_meta', 'Custom Data' )
 		->where( 'post_id', '=', get_option( 'page_on_front' ) )
 		->add_fields( array(
