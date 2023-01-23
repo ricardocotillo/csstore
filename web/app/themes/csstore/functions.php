@@ -304,11 +304,17 @@ function set_global_product( $p ) {
 }
 
 function rc_rest_contact( $req ) {
-	$response['name'] = $req['name'];
-	$response['email'] = $req['email'];
-	$response['message'] = $req['message'];
-
-	$res = new WP_REST_Response($response);
+	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+	$to = carbon_get_theme_option( 'rc_email' );
+	$subject = 'Nuevo mensaje de contacto';
+	$context = array(
+		'name' 		=> $req['name'],
+		'email' 	=> $req['email'],
+		'message' 	=> $req['message'],
+	);
+	$message = Timber::compile( 'email/contact.twig', $context );
+	wp_mail( $to, $subject, $message, $headers );
+	$res = new WP_REST_Response();
 	$res->set_status(200);
 
 	return ['response' => $res];
