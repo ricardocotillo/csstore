@@ -80,6 +80,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
 		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
+		add_action( 'rest_api_init', array( $this, 'rc_rest_routes' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -89,6 +90,13 @@ class StarterSite extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 
+	}
+
+	public function rc_rest_routes() {
+		register_rest_route( 'rc', '/contact', array(
+			'methods' => 'POST',
+			'callback' => 'rc_rest_contact',
+		) );
 	}
 
 	public function rc_menus() {
@@ -293,4 +301,15 @@ function set_global_product( $p ) {
 	global $post;
 	$product = $p;
 	$post = get_post( $p->id );
+}
+
+function rc_rest_contact( $req ) {
+	$response['name'] = $req['name'];
+	$response['email'] = $req['email'];
+	$response['message'] = $req['message'];
+
+	$res = new WP_REST_Response($response);
+	$res->set_status(200);
+
+	return ['response' => $res];
 }

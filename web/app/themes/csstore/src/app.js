@@ -3,6 +3,35 @@ import Alpine from 'alpinejs'
 
 window.Alpine = Alpine
 
+// contact
+window.contactData = () => {
+  return {
+    loading: false,
+    success: false,
+    error: false,
+    url: '/wp-json/rc/contact',
+    async handleSubmit(e) {
+      const formData = new FormData(this.$refs.contactForm)
+      this.loading = true
+      const res = await fetch(this.url, {
+        method: 'POST',
+        body: formData,
+      })
+      const b = await res.json()
+      this.loading = false
+      this.$refs.contactForm.reset()
+      this.notifications(b.response.status)
+    },
+    notifications(status) {
+      status === 200 ? this.success = true : this.error = true
+      setTimeout(() => {
+        this.success = false
+        this.error = false
+      }, 3000)
+    }
+  }
+}
+
 // search
 window.searchData = () => {
   return {
