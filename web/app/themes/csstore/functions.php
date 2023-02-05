@@ -154,10 +154,12 @@ class StarterSite extends Timber\Site {
 		->where( 'post_id', '=', get_option( 'page_on_front' ) )
 		->add_fields( array(
 			Field::make( 'complex', 'rc_slider', __( 'Slider' ) )
-			->add_fields( array(
-				Field::make( 'image', 'image', __( 'Slide Photo' ) ),
-				Field::make( 'text', 'button_text', __( 'Slide Button Text' ) ),
-			) ),
+				->add_fields( array(
+					Field::make( 'image', 'image', 'Slide Photo' ),
+					Field::make( 'text', 'button_text', 'Slide Button Text' ),
+					Field::make( 'text', 'link', 'Slide Button Link' )
+						->set_attribute( 'type', 'url' ),
+				) ),
 			Field::make( 'separator', 'rc_items_grid_separator', 'Items Grid' ),
 			Field::make( 'text', 'rc_items_grid_title', 'Título' ),
 			Field::make( 'association', 'rc_items_grid_items', 'Items' )

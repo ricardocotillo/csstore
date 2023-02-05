@@ -6,8 +6,8 @@
       <ul class="splide__list">
         {% for slide in slider %}
           <li style="background-image: url({{ Image(slide.image).src }})" class="flex items-center justify-center h-96 splide__slide">
-            {% if slide.button_text %}
-              <button class="text-white button bg-primary hover:bg-pink-500">{{ slide.button_text }}</button>
+            {% if slide.link %}
+              <a href="{{ slide.link }}" class="text-white button bg-primary hover:bg-pink-500">{{ slide.button_text }}</a>
             {% endif %}
           </li>
         {% endfor %}
