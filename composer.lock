@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f54a671e2aec0567bc18a15b832fb156",
+    "content-hash": "5ce29c0fd96ae96da98b4e4e5d81cb7d",
     "packages": [
         {
             "name": "composer/installers",
@@ -342,6 +342,25 @@
                 }
             ],
             "time": "2022-07-30T15:51:26+00:00"
+        },
+        {
+            "name": "rcotillo/woo-discount-rules-pro",
+            "version": "2.5.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://portafolio.cotillo.tech/satispress/woo-discount-rules-pro/2.5.4",
+                "shasum": "05700886a59391567ca3d1e00e4176f2694991e9"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "authors": {
+                "name": "Flycart",
+                "homepage": "https://www.flycart.org"
+            },
+            "description": "PRO package for Woo Discount Rules. You need both the Core and PRO packages to get the PRO features running.",
+            "homepage": "http://www.flycart.org"
         },
         {
             "name": "roots/bedrock-autoloader",
@@ -1159,6 +1178,24 @@
             "homepage": "https://wordpress.org/plugins/safe-svg/"
         },
         {
+            "name": "wpackagist-plugin/woo-discount-rules",
+            "version": "2.5.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woo-discount-rules/",
+                "reference": "tags/2.5.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woo-discount-rules.2.5.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woo-discount-rules/"
+        },
+        {
             "name": "wpackagist-plugin/woocommerce",
             "version": "7.3.0",
             "source": {
@@ -1175,6 +1212,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/woocommerce/"
+        },
+        {
+            "name": "wpackagist-plugin/yith-woocommerce-catalog-mode",
+            "version": "2.18.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/yith-woocommerce-catalog-mode/",
+                "reference": "tags/2.18.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/yith-woocommerce-catalog-mode.2.18.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/yith-woocommerce-catalog-mode/"
         },
         {
             "name": "wpackagist-theme/twentytwentythree",

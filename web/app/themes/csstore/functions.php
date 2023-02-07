@@ -10,6 +10,7 @@
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Timber\Timber;
 
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
@@ -20,11 +21,11 @@ $composer_autoload = __DIR__ . '/vendor/autoload.php';
 include 'inc/inc.vite.php';
 if ( file_exists( $composer_autoload ) ) {
 	require_once $composer_autoload;
-	$timber = new Timber\Timber();
+	$timber = new Timber();
 
 	// init timber woocommerce
 	if ( class_exists( 'WooCommerce' ) ) {
-		Timber\Integrations\WooCommerce\WooCommerce::init();
+		\Timber\Integrations\WooCommerce\WooCommerce::init();
 	}
 }
 
@@ -66,7 +67,7 @@ Timber::$autoescape = false;
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class StarterSite extends Timber\Site {
+class StarterSite extends \Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
@@ -123,8 +124,8 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['menu']  = new Timber\Menu( 'main-menu' );
-		$context['footer_menu']  = new Timber\Menu( 'footer-menu' );
+		$context['menu']  = new \Timber\Menu( 'main-menu' );
+		$context['footer_menu']  = new \Timber\Menu( 'footer-menu' );
 		$whatsapp = carbon_get_theme_option( 'rc_whatsapp' );
 		$wsp_msg = carbon_get_theme_option( 'rc_whatsapp_message' );
 		$context['social'] = array(
@@ -290,12 +291,12 @@ class StarterSite extends Timber\Site {
 
 	/** This is where you can add your own functions to twig.
 	 *
-	 * @param string $twig get extension.
+	 * @param object $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
-		$twig->addFunction( new Timber\Twig_Function( 'set_global_product', 'set_global_product' ) );
+		$twig->addFunction( new \Timber\Twig_Function( 'set_global_product', 'set_global_product' ) );
 		return $twig;
 	}
 
