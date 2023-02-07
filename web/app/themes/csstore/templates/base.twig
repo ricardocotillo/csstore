@@ -42,7 +42,7 @@
             <a href="{{ fn('wc_get_page_permalink', 'myaccount') }}" class="p-2 text-2xl">
               <i class="las la-user"></i>
             </a>
-            <div x-data="miniCartData">
+            {# <div x-data="miniCartData">
               <button @click="openMiniCart" class="relative p-2 text-2xl focus-visible:outline-none">
                 <i class="las la-shopping-bag">
                   <span class="cart-count empty"></span>
@@ -65,7 +65,7 @@
                   {{ fn('woocommerce_mini_cart') }}
                 </div>
               </div>
-            </div>
+            </div> #}
           </div>
           {# nav #}
           <nav
@@ -88,7 +88,7 @@
 			{% endblock %}
 		</header>
 
-		<section id="content" role="main" class="content-wrapper">
+		<section id="content" role="main" class="relative content-wrapper">
 			{# {% if title %}<h1>{{title}}</h1>{% endif %} #}
 			<div class="wrapper {{sidebar_class}}">
 				{% block content %}
@@ -100,6 +100,14 @@
 					{{sidebar}}
 				</aside>
 			{% endif %} #}
+      <a
+        class="fixed flex items-center justify-center text-3xl text-white bg-green-500 rounded-full w-14 bottom-5 aspect-square right-5"
+        target="_blank"
+        href="{{ social.whatsapp_link }}"
+        rel="nofollow"
+      >
+        <i class="lab la-whatsapp"></i>
+      </a>
 		</section>
 
 		{% block footer %}

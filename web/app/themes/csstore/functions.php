@@ -81,6 +81,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
 		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
 		add_action( 'rest_api_init', array( $this, 'rc_rest_routes' ) );
+		add_filter( 'woocommerce_is_purchasable', '__return_false' );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -124,12 +125,15 @@ class StarterSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$context['menu']  = new Timber\Menu( 'main-menu' );
 		$context['footer_menu']  = new Timber\Menu( 'footer-menu' );
+		$whatsapp = carbon_get_theme_option( 'rc_whatsapp' );
+		$wsp_msg = carbon_get_theme_option( 'rc_whatsapp_message' );
 		$context['social'] = array(
-			'phone'		=> carbon_get_theme_option( 'rc_phone' ),
-			'whatsapp'	=> carbon_get_theme_option( 'rc_whatsapp' ),
-			'email'		=> carbon_get_theme_option( 'rc_email' ),
-			'facebook'	=> carbon_get_theme_option( 'rc_facebook' ),
-			'instagram'	=> carbon_get_theme_option( 'rc_instagram' ),
+			'phone'			=> carbon_get_theme_option( 'rc_phone' ),
+			'whatsapp'		=> $whatsapp,
+			'email'			=> carbon_get_theme_option( 'rc_email' ),
+			'facebook'		=> carbon_get_theme_option( 'rc_facebook' ),
+			'instagram'		=> carbon_get_theme_option( 'rc_instagram' ),
+			'whatsapp_link'	=> 'https://wa.me/51' . $whatsapp . '?text=' . ($wsp_msg ? urlencode($wsp_msg) : ''),
 		);
 		$context['site']  = $this;
 		return $context;
@@ -143,6 +147,7 @@ class StarterSite extends Timber\Site {
 					->set_attribute( 'type', 'tel' ),
 				Field::make( 'text', 'rc_whatsapp', 'Whatsapp' )
 					->set_attribute( 'type', 'tel' ),
+				Field::make( 'rich_text', 'rc_whatsapp_message', 'Mensaje de whatsapp' ),
 				Field::make( 'text', 'rc_email', 'Email' )
 					->set_attribute( 'type', 'email' ),
 				Field::make( 'text', 'rc_facebook', 'Facebook' )
