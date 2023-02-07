@@ -60,7 +60,8 @@
         "wpackagist-plugin/woo-discount-rules": "^2.5",
         "rcotillo/woo-discount-rules-pro": "^2.5",
         "wpackagist-plugin/autoptimize": "^3.1",
-        "wpackagist-plugin/cache-enabler": "^1.8"
+        "wpackagist-plugin/cache-enabler": "^1.8",
+        "wpackagist-plugin/seo-by-rank-math": "1.0.107.3"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7.1",

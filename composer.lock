@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38bd41492e82e36ad06ed9901f8be20c",
+    "content-hash": "a0a4ab80e54c7a1679e7ba743626e1ef",
     "packages": [
         {
             "name": "composer/installers",
@@ -1212,6 +1212,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/safe-svg/"
+        },
+        {
+            "name": "wpackagist-plugin/seo-by-rank-math",
+            "version": "1.0.107.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
+                "reference": "tags/1.0.107.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.107.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/seo-by-rank-math/"
         },
         {
             "name": "wpackagist-plugin/woo-discount-rules",
