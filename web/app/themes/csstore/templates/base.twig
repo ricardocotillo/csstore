@@ -15,7 +15,22 @@
           <div class="flex items-center flex-shrink-0 gap-2 pl-2">
             <button @click="open = true" class="p-2 text-2xl xl:hidden"><i class="las la-bars"></i></button>
             <h1 class="hdr-logo" role="banner">
-              <a class="font-bold uppercase text-primary hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+              {% if site.icon %}
+                <a href="{{ site.url }}">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="{{ site.icon.src|resize(80) }}" />
+                    <img class="w-14 md:w-20" src="{{ site.icon.src|resize(56) }}" alt="{{ site.name }}" />
+                  </picture>
+                </a>
+              {% else %}
+                <a
+                  class="font-bold uppercase text-primary hdr-logo-link"
+                  href="{{ site.url }}"
+                  rel="home"
+                >
+                  {{ site.name }}
+                </a>
+              {% endif %}
             </h1>
           </div>
           {# search #}
@@ -76,7 +91,14 @@
           >
             <div class="w-3/4 h-full bg-white xl:w-full">
               <div class="flex items-center justify-between px-4 xl:hidden">
-                <h1 class="font-bold uppercase text-primary hdr-logo" role="banner">{{site.name}}</h1>
+                {% if site.icon %}
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="{{ site.icon.src|resize(80) }}" />
+                    <img class="w-14 md:w-20" src="{{ site.icon.src|resize(56) }}" alt="{{ site.name }}" />
+                  </picture>
+                {% else %}
+                  <h1 class="font-bold uppercase text-primary hdr-logo" role="banner">{{site.name}}</h1>
+                {% endif %}
                 <button @click="open = false" class="p-2 text-2xl"><i class="las la-times"></i></button>
               </div>
               <div class="flex justify-start border-t xl:justify-center border-t-gray-300">
