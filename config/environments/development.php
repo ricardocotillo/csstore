@@ -14,7 +14,7 @@ Config::define('WP_DISABLE_FATAL_ERROR_HANDLER', true);
 Config::define('SCRIPT_DEBUG', true);
 Config::define('DISALLOW_INDEXING', true);
 Config::define('IS_VITE_DEVELOPMENT', true);
-Config::define( 'WP_CACHE', false );
+Config::define('WP_CACHE', false);
 
 ini_set('display_errors', '1');
 
