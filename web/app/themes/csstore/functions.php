@@ -134,6 +134,7 @@ class StarterSite extends \Timber\Site {
 			'email'			=> carbon_get_theme_option( 'rc_email' ),
 			'facebook'		=> carbon_get_theme_option( 'rc_facebook' ),
 			'instagram'		=> carbon_get_theme_option( 'rc_instagram' ),
+			'tiktok'		=> carbon_get_theme_option( 'rc_tiktok' ),
 			'whatsapp_link'	=> 'https://wa.me/51' . $whatsapp . '?text=' . ($wsp_msg ? urlencode($wsp_msg) : ''),
 		);
 		$context['site']  = $this;
@@ -154,6 +155,8 @@ class StarterSite extends \Timber\Site {
 				Field::make( 'text', 'rc_facebook', 'Facebook' )
 					->set_attribute( 'type', 'url' ),
 				Field::make( 'text', 'rc_instagram', 'Instagram' )
+					->set_attribute( 'type', 'url' ),
+				Field::make( 'text', 'rc_tiktok', 'Tik Tok' )
 					->set_attribute( 'type', 'url' ),
 			) );
 		Container::make( 'post_meta', 'Custom Data' )
