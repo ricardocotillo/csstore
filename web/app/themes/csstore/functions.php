@@ -82,7 +82,6 @@ class StarterSite extends \Timber\Site {
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
 		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
 		add_action( 'rest_api_init', array( $this, 'rc_rest_routes' ) );
-		add_filter( 'woocommerce_is_purchasable', '__return_false' );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
