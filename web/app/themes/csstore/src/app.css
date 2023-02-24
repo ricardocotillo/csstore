@@ -150,6 +150,16 @@ h4 {
     @apply flex gap-1 mt-1;
 }
 
+.woocommerce-page.single-product .stock {
+    @apply font-bold;
+}
+.woocommerce-page.single-product .stock.out-of-stock {
+    @apply text-success;
+}
+.woocommerce-page.single-product .stock.out-of-stock {
+    @apply text-danger;
+}
+
 /* loop */
 .woocommerce-loop-product__link {
     @apply relative flex flex-col gap-1;
