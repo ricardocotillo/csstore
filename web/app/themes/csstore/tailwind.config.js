@@ -28,6 +28,8 @@ module.exports = {
       },
       spacing: {
         'shop-1/4': 'calc(25% - 0.375rem)',
+        'shop-1/3': 'calc(33.33% - .5rem)',
+        'shop-2/3': 'calc(66.66% - .5rem)',
         'shop-1/2': 'calc(50% - 0.25rem)',
       }
     },
