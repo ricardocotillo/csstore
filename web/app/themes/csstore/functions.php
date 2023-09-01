@@ -80,7 +80,7 @@ class StarterSite extends \Timber\Site {
 		add_filter('use_block_editor_for_post', '__return_false', 10);
 		add_action( 'carbon_fields_register_fields', array( $this, 'rc_register_fields' ) );
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'rc_fragments' ), 10, 1 );
-		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
+		// add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'rc_add_after_add_to_cart_button' ) );
 		add_action( 'rest_api_init', array( $this, 'rc_rest_routes' ) );
 		parent::__construct();
 	}
